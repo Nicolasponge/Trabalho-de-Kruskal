@@ -1,5 +1,7 @@
 #include "grafo.hpp"
+#include "union_find.hpp"
 #include <windows.h>
+#include <iostream>
 
 int main() {
     SetConsoleOutputCP(CP_UTF8);
@@ -18,6 +20,13 @@ int main() {
     defineNomeVertice(g, 4, "E");
     defineNomeVertice(g, 5, "F");
 
+    UnionFind uf;
+    inicializaUF(uf, g.numVertices);
+    std::cout << unir(uf, 1, 4) << "\n";  // B-E: espera 1
+    std::cout << unir(uf, 0, 3) << "\n";  // A-D: espera 1
+    std::cout << unir(uf, 0, 1) << "\n";  // A-B: espera 1
+    std::cout << unir(uf, 3, 4) << "\n";  // D-E: espera 0, fecharia ciclo
+
     imprimeGrafo(g);
-    return 0;
+    return 0; 
 }

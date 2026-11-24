@@ -5,6 +5,9 @@ void inicializaGrafo(Grafo &g, int numVertices) {
     g.numVertices = numVertices;
     g.arestas.clear();
     g.nomesVertices.resize(numVertices);
+    for (int i = 0; i < numVertices; ++i) {
+        g.nomesVertices[i] = std::to_string(i);
+    }
 }
 
 void defineNomeVertice(Grafo &g, int vertice, const std::string &nome) {
@@ -17,11 +20,8 @@ void defineNomeVertice(Grafo &g, int vertice, const std::string &nome) {
 
 void adicionaAresta(Grafo &g, int vertOrigem, int vertDestino, double peso) {
     Aresta a;
-    a.vertOrigem = vertOrigem;
-    g.nomesVertices[vertOrigem] = vertOrigem; // Para assegurar que não vai dar erro caso alguém não dê um nome para um vértice
-    
+    a.vertOrigem = vertOrigem;    
     a.vertDestino = vertDestino;
-    g.nomesVertices[vertDestino] = vertDestino; // Para assegurar que não vai dar erro caso alguém não dê um nome para um vértice
 
     a.peso = peso;
     g.arestas.push_back(a);
