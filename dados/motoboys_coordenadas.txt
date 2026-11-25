@@ -1,0 +1,12 @@
+Pedido_01 x=7.25km y=7.29km
+Pedido_02 x=1.56km y=7.31km
+Pedido_03 x=9.26km y=3.50km
+Pedido_04 x=7.89km y=6.78km
+Pedido_05 x=1.98km y=6.36km
+Pedido_06 x=6.97km y=4.06km
+Pedido_07 x=7.59km y=8.86km
+Pedido_08 x=4.02km y=5.35km
+Pedido_09 x=7.89km y=4.40km
+Pedido_10 x=5.97km y=7.14km
+Pedido_11 x=1.89km y=5.96km
+Pedido_12 x=7.96km y=2.41km
