@@ -1,0 +1,165 @@
+% ============================================================
+% meutrabalho / modules / layout.sty
+% Página, tipografia, cores, cabeçalho/rodapé, capa e
+% estrutura acadêmica (resumo, sumário, listas automáticas).
+% ============================================================
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{meutrabalho/modules/mt-layout}[2026/08/16 layout v1.6]
+
+% ---------- Idioma e codificação ----------
+\RequirePackage[T1]{fontenc}
+\RequirePackage[utf8]{inputenc}
+\RequirePackage[brazil]{babel}
+\RequirePackage{lmodern}
+\RequirePackage{microtype}
+\RequirePackage{etoolbox}
+
+% ---------- Página ----------
+\RequirePackage[
+    a4paper,
+    top=3cm,
+    bottom=2.5cm,
+    left=3cm,
+    right=2cm,
+    headheight=15pt
+]{geometry}
+\RequirePackage{setspace}
+\onehalfspacing
+
+% ---------- Cores ----------
+\RequirePackage{xcolor}
+\definecolor{primary}{HTML}{174A7E}
+\definecolor{secondary}{HTML}{555555}
+\definecolor{lightgray}{HTML}{F3F4F6}
+\definecolor{darkgray}{HTML}{303030}
+
+% ---------- Links ----------
+\RequirePackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=primary,
+    citecolor=primary,
+    urlcolor=primary,
+    pdfstartview=FitH
+}
+% (cleveref é carregado em meutrabalho.sty, depois de amsmath)
+
+% ---------- Caixas (usadas por math/programming) ----------
+\RequirePackage[most]{tcolorbox}
+
+% ---------- Seções com cor discreta ----------
+\RequirePackage{titlesec}
+\titleformat{\section}
+    {\normalfont\Large\bfseries\color{primary}}
+    {\thesection}{0.6em}{}
+\titleformat{\subsection}
+    {\normalfont\large\bfseries\color{primary}}
+    {\thesubsection}{0.6em}{}
+\titleformat{\subsubsection}
+    {\normalfont\normalsize\bfseries\color{secondary}}
+    {\thesubsubsection}{0.6em}{}
+
+% ---------- Cabeçalho / rodapé ----------
+\RequirePackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\newcommand{\@mt@subject}{}
+\newcommand{\subject}[1]{\gdef\@mt@subject{#1}}
+\lhead{\small\textcolor{secondary}{\@mt@subject}}
+\rhead{\small\textcolor{secondary}{\@author}}
+\cfoot{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\fancypagestyle{plain}{%
+    \fancyhf{}
+    \cfoot{\small\thepage}
+    \renewcommand{\headrulewidth}{0pt}
+}
+
+% ============================================================
+% METADADOS DO TRABALHO
+% ============================================================
+\newcommand{\@mt@university}{}
+\newcommand{\university}[1]{\gdef\@mt@university{#1}}
+
+\newcommand{\@mt@course}{}
+\newcommand{\course}[1]{\gdef\@mt@course{#1}}
+
+\newcommand{\@mt@professor}{}
+\newcommand{\professor}[1]{\gdef\@mt@professor{#1}}
+
+\newcommand{\@mt@logo}{}
+\newcommand{\universitylogo}[1]{\gdef\@mt@logo{#1}}
+
+% Tipo de trabalho: lista | trabalho | projeto | relatorio
+\newcommand{\@mt@worktype}{trabalho}
+\newcommand{\worktype}[1]{\gdef\@mt@worktype{#1}}
+
+% ============================================================
+% CAPA
+% ============================================================
+\newcommand{\makecover}{%
+    \begin{titlepage}
+        \begin{center}
+            \ifdefempty{\@mt@logo}{}{%
+                \includegraphics[width=0.30\textwidth]{\@mt@logo}\\[0.8cm]
+            }
+            {\large\textsc{\@mt@university}}\\[0.15cm]
+            \ifdefempty{\@mt@course}{}{{\large\@mt@course}\\[0.15cm]}
+            \ifdefempty{\@mt@subject}{}{{\large\@mt@subject}\\}
+            \vspace{2.2cm}
+            {\color{primary}\rule{0.85\textwidth}{0.6pt}}\\[0.5cm]
+            {\Huge\bfseries \@title}\\[0.5cm]
+            {\color{primary}\rule{0.85\textwidth}{0.6pt}}
+            \vfill
+            \begin{tabular}{rl}
+                \textbf{Autor:}     & \@author \\[0.25cm]
+                \ifdefempty{\@mt@professor}{}{\textbf{Professor:}  & \@mt@professor \\}
+            \end{tabular}
+            \vfill
+            {\@date\par}
+        \end{center}
+    \end{titlepage}
+}
+
+% ============================================================
+% RESUMO / ABSTRACT
+% ============================================================
+\newcommand{\@mt@resumo}{}
+\newcommand{\resumo}[1]{\gdef\@mt@resumo{#1}}
+\newcommand{\@mt@palavraschave}{}
+\newcommand{\palavraschave}[1]{\gdef\@mt@palavraschave{#1}}
+
+\newcommand{\@mt@abstract}{}
+\newcommand{\abstracttext}[1]{\gdef\@mt@abstract{#1}}
+\newcommand{\@mt@keywords}{}
+\newcommand{\keywords}[1]{\gdef\@mt@keywords{#1}}
+
+\newcommand{\imprimirresumo}{%
+    \ifdefempty{\@mt@resumo}{}{%
+        \section*{Resumo}
+        \@mt@resumo
+        \ifdefempty{\@mt@palavraschave}{}{%
+            \par\medskip\noindent\textbf{Palavras-chave:} \@mt@palavraschave.
+        }
+        \bigskip
+    }
+    \ifdefempty{\@mt@abstract}{}{%
+        \section*{Abstract}
+        \@mt@abstract
+        \ifdefempty{\@mt@keywords}{}{%
+            \par\medskip\noindent\textbf{Keywords:} \@mt@keywords.
+        }
+        \bigskip
+    }
+}
+
+% ============================================================
+% SUMÁRIO E LISTAS AUTOMÁTICAS
+% ============================================================
+\newcommand{\sumario}{\tableofcontents\clearpage}
+\newcommand{\listadefiguras}{\listoffigures\clearpage}
+\newcommand{\listadetabelas}{\listoftables\clearpage}
+
+\endinput

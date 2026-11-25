@@ -1,0 +1,46 @@
+\begin{tikzpicture}[x=1cm,y=1cm,font=\footnotesize]
+\fill[black!5,rounded corners=4pt] (0,0) rectangle (11.2,-11.2);
+\begin{scope}
+\clip[rounded corners=4pt] (0,0) rectangle (11.2,-11.2);
+\draw[black!18,line width=4.0mm] (2.10,0.00) -- (2.10,-11.20);
+\draw[black!18,line width=2.6mm] (4.22,-3.20) -- (4.22,-11.20);
+\draw[black!18,line width=2.6mm] (6.18,0.00) -- (6.18,-11.20);
+\draw[black!18,line width=2.6mm] (7.18,-5.14) -- (7.18,-9.68);
+\draw[black!18,line width=2.6mm] (8.10,0.00) -- (8.10,-9.68);
+\draw[black!18,line width=2.6mm] (9.46,-3.20) -- (9.46,-9.68);
+\draw[black!18,line width=2.6mm] (0.90,-5.14) -- (0.90,-11.20);
+\draw[black!18,line width=2.6mm] (10.30,0.00) -- (10.30,-5.14);
+\draw[black!18,line width=2.6mm] (6.18,-1.62) -- (11.20,-1.62);
+\draw[black!18,line width=4.0mm] (0.00,-3.20) -- (11.20,-3.20);
+\draw[black!18,line width=2.6mm] (0.00,-5.14) -- (11.20,-5.14);
+\draw[black!18,line width=2.6mm] (2.10,-6.98) -- (11.20,-6.98);
+\draw[black!18,line width=2.6mm] (6.18,-8.08) -- (11.20,-8.08);
+\draw[black!18,line width=2.6mm] (0.00,-9.68) -- (11.20,-9.68);
+\draw[black!18,line width=2.6mm] (0.00,-0.88) -- (6.18,-0.88);
+\end{scope}
+\draw[black!40,rounded corners=4pt] (0,0) rectangle (11.2,-11.2);
+\node[draw,thick,fill=white,minimum size=5mm,inner sep=1pt,font=\scriptsize\bfseries] (R) at (6.18,-6.98) {R};
+\node[below=1pt of R,font=\scriptsize\bfseries,fill=black!5,inner sep=1pt] {Restaurante};
+\draw[line width=0.6pt] (9.4,-10.7) -- ++(0,0.1) -- ++(1,0) -- ++(0,-0.1); \node[above] at (9.9,-10.6) {1 km};
+\draw[grupoB,line width=1.4pt] (2.18,-4.12) -- node[right,font=\scriptsize\bfseries,text=grupoB,inner sep=1.5pt] {0,41} (2.10,-4.52);
+\draw[grupoA,line width=1.4pt] (7.44,-3.20) -- node[below left,font=\scriptsize\bfseries,text=grupoA,inner sep=1.5pt] {0,82} (8.10,-3.70);
+\draw[grupoC,line width=1.4pt] (7.18,-6.42) -- node[below,font=\scriptsize\bfseries,text=grupoC,inner sep=1.5pt] {0,98} (8.10,-6.08);
+\draw[grupoB,line width=1.4pt] (1.76,-3.18) -- node[left,font=\scriptsize\bfseries,text=grupoB,inner sep=1.5pt] {1,04} (2.18,-4.12);
+\draw[grupoA,line width=1.4pt] (7.44,-3.20) -- node[below,font=\scriptsize\bfseries,text=grupoA,inner sep=1.5pt] {1,29} (6.18,-3.34);
+\draw[grupoA,line width=1.4pt] (7.44,-3.20) -- node[right,font=\scriptsize\bfseries,text=grupoA,inner sep=1.5pt] {1,61} (7.80,-1.62);
+\draw[grupoC,line width=1.4pt] (9.46,-6.98) -- node[above right,font=\scriptsize\bfseries,text=grupoC,inner sep=1.5pt] {1,64} (8.10,-6.08);
+\draw[grupoC,line width=1.4pt] (9.46,-6.98) -- node[right,font=\scriptsize\bfseries,text=grupoC,inner sep=1.5pt] {1,70} (8.16,-8.08);
+\draw[grupoB,line width=1.4pt] (4.22,-5.14) -- node[below,font=\scriptsize\bfseries,text=grupoB,inner sep=1.5pt] {2,22} (2.10,-4.52);
+\node[pino=grupoA,label={[font=\scriptsize\bfseries]right:P01}] at (7.44,-3.20) {};
+\node[pino=grupoB,label={[font=\scriptsize\bfseries]left:P02}] at (1.76,-3.18) {};
+\node[pino=grupoC,label={[font=\scriptsize\bfseries]right:P03}] at (9.46,-6.98) {};
+\node[pino=grupoA,label={[font=\scriptsize\bfseries]right:P04}] at (8.10,-3.70) {};
+\node[pino=grupoB,label={[font=\scriptsize\bfseries]right:P05}] at (2.18,-4.12) {};
+\node[pino=grupoC,label={[font=\scriptsize\bfseries]left:P06}] at (7.18,-6.42) {};
+\node[pino=grupoA,label={[font=\scriptsize\bfseries]right:P07}] at (7.80,-1.62) {};
+\node[pino=grupoB,label={[font=\scriptsize\bfseries]right:P08}] at (4.22,-5.14) {};
+\node[pino=grupoC,label={[font=\scriptsize\bfseries]right:P09}] at (8.10,-6.08) {};
+\node[pino=grupoA,label={[font=\scriptsize\bfseries]left:P10}] at (6.18,-3.34) {};
+\node[pino=grupoB,label={[font=\scriptsize\bfseries]left:P11}] at (2.10,-4.52) {};
+\node[pino=grupoC,label={[font=\scriptsize\bfseries]left:P12}] at (8.16,-8.08) {};
+\end{tikzpicture}
