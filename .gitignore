@@ -1,2 +1,4 @@
 saida/*.dot
 saida/*.png
+dados/*.txt
+kruskal.exe
